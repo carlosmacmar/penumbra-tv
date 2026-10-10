@@ -1,0 +1,77 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="es">
+    <string name="app_name">Penumbra</string>
+
+    <!-- Panel de estado -->
+    <string name="status_on">Activado</string>
+    <string name="status_off">Desactivado</string>
+    <string name="status_hint_off">Pulsa para oscurecer</string>
+    <string name="status_hint_setup">Falta un permiso</string>
+    <string name="status_ramping">Oscureciendo…</string>
+    <string name="status_dim">Atenuación %1$d %%</string>
+    <string name="status_dim_tone">Atenuación %1$d %% · %2$s</string>
+    <string name="next_on_today">Se encenderá hoy a las %1$s</string>
+    <string name="next_on_tomorrow">Se encenderá mañana a las %1$s</string>
+    <string name="next_off_today">Se apagará hoy a las %1$s</string>
+    <string name="next_off_tomorrow">Se apagará mañana a las %1$s</string>
+    <string name="power_on_description">Activar el filtro</string>
+    <string name="power_off_description">Desactivar el filtro</string>
+
+    <!-- Ajustes -->
+    <string name="section_screen">Pantalla</string>
+    <string name="section_schedule">Programación</string>
+    <string name="section_system">Sistema</string>
+
+    <string name="setting_dim">Atenuación</string>
+    <string name="setting_tone">Filtro nocturno</string>
+    <string name="setting_warmth">Intensidad del filtro</string>
+    <string name="percent">%1$d %%</string>
+
+    <string name="setting_schedule">Encendido y apagado automáticos</string>
+    <string name="setting_schedule_hint">Todos los días, a la hora que elijas</string>
+    <string name="setting_start">Encender a las</string>
+    <string name="setting_end">Apagar a las</string>
+    <string name="setting_fade">Oscurecimiento gradual</string>
+    <string name="setting_fade_hint">Al encenderse, la pantalla se oscurece poco a poco</string>
+    <string name="fade_off">Desactivado</string>
+    <string name="fade_minutes">%1$d min</string>
+    <string name="fade_hour">1 h</string>
+
+    <string name="setting_wake">Activar al encender la TV</string>
+    <string name="setting_wake_hint">El filtro se activa solo cada vez que enciendes la TV</string>
+    <string name="setting_brightness">Bajar también el brillo del sistema</string>
+    <string name="setting_brightness_hint">Solo en televisores compatibles</string>
+    <string name="setting_brightness_missing">Falta el permiso · pulsa para ver cómo concederlo</string>
+    <string name="setting_mode">Modo de funcionamiento</string>
+    <string name="setting_mode_hint">Pulsa para abrir los ajustes de accesibilidad</string>
+    <string name="mode_accessibility">Accesibilidad</string>
+    <string name="mode_overlay">Superposición</string>
+    <string name="mode_none">Sin permiso</string>
+
+    <!-- Tonos del filtro nocturno -->
+    <string name="tone_neutral">Neutro</string>
+    <string name="tone_warm">Cálido</string>
+    <string name="tone_amber">Ámbar</string>
+    <string name="tone_candle">Vela</string>
+    <string name="tone_sunset">Ocaso</string>
+    <string name="tone_red">Rojo</string>
+
+    <!-- Configuración inicial y ayuda -->
+    <string name="setup_title">Un último paso</string>
+    <string name="setup_body">Para oscurecer la pantalla sobre cualquier app, activa «Penumbra» en Ajustes › Sistema › Accesibilidad.</string>
+    <string name="setup_open_accessibility">Abrir accesibilidad</string>
+    <string name="setup_other">Otras opciones</string>
+
+    <string name="help_overlay_title">Permiso de superposición</string>
+    <string name="help_overlay_body">Como alternativa a la accesibilidad, Penumbra puede dibujar el filtro con el permiso «Mostrar sobre otras apps». Muchas TV no muestran esta opción; en ese caso, concédelo desde un ordenador con ADB:</string>
+    <string name="help_brightness_title">Brillo del sistema</string>
+    <string name="help_brightness_body">Para cambiar el brillo, Penumbra necesita el permiso «Modificar ajustes del sistema». Si tu TV no muestra la opción, concédelo desde un ordenador con ADB:</string>
+    <string name="help_open_settings">Abrir ajustes</string>
+    <string name="help_close">Cerrar</string>
+    <string name="help_settings_unavailable">Esta TV no tiene ese ajuste. Usa el comando ADB.</string>
+
+    <!-- Sistema -->
+    <string name="accessibility_description">Penumbra usa este servicio solo para dibujar una capa oscura o de color sobre la pantalla. No lee ni recopila nada de lo que ves.</string>
+    <string name="accessibility_summary">Dibuja el filtro sobre la pantalla</string>
+    <string name="notification_channel">Filtro de pantalla</string>
+    <string name="notification_text">Filtro de pantalla en funcionamiento</string>
+</resources>

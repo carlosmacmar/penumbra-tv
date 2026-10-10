@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- El servicio no escucha eventos ni lee ventanas: solo aloja la capa del filtro. -->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagDefault"
+    android:canRetrieveWindowContent="false"
+    android:description="@string/accessibility_description"
+    android:isAccessibilityTool="false"
+    tools:ignore="UnusedAttribute"
+    android:notificationTimeout="1000"
+    android:summary="@string/accessibility_summary" />
