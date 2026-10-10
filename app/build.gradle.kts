@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
-// Clave de firma propia, fuera del control de versiones (ver keystore.properties.example).
+// Your own signing key, kept out of version control (see keystore.properties.example).
 val releaseSigning = rootProject.file("keystore.properties").takeIf { it.exists() }?.let { file ->
     Properties().apply { file.inputStream().use { load(it) } }
 }
@@ -21,6 +21,8 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+        // The app ships in English and Spanish; drop library translations for other languages.
+        resourceConfigurations += listOf("en", "es")
     }
 
     signingConfigs {
@@ -39,7 +41,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            // Sin keystore.properties se firma con la clave de depuración, solo apta para pruebas.
+            // Without keystore.properties the debug key is used, which is only fit for testing.
             signingConfig = signingConfigs.findByName("release") ?: signingConfigs.getByName("debug")
         }
     }

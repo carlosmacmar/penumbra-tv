@@ -16,6 +16,7 @@ App para Google TV / Android TV que oscurece la pantalla y aplica un filtro de c
 | Encendido y apagado automáticos a una hora | **Encender a las / Apagar a las**: cada día, también si la ventana cruza la medianoche (p. ej. 22:00 → 07:00). Usa alarmas exactas y se recupera si la TV estaba en reposo, se reinició o cambió la hora. |
 | Arranque automático | **Activar al encender la TV**: el filtro se activa solo cada vez que la TV se enciende o se reinicia. |
 | Interfaz bonita y minimalista | Pantalla única, oscura, pensada para el mando: reloj grande, botón de encendido con halo y un color de acento que sigue al tono elegido. |
+| Idiomas | **Español e inglés**: la app usa el idioma de la TV. |
 
 Los cambios se ven al instante: la propia interfaz queda bajo el filtro.
 
@@ -110,7 +111,7 @@ app/src/main/java/com/penumbra/tv/
 │   ├── OverlayService.kt       Anfitrión alternativo (servicio en primer plano)
 │   └── OverlayHost.kt          Elige anfitrión según los permisos
 ├── receiver/                   Alarmas, arranque, actualización y cambios de hora
-└── ui/                         Interfaz Compose for TV
+└── ui/                         Interfaz Compose for TV (textos en res/values y res/values-es)
 ```
 
 Tests unitarios del horario y del modelo: `./gradlew testDebugUnitTest`.

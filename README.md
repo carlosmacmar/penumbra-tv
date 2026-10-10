@@ -17,19 +17,17 @@
   <img src="docs/screen-on.png" width="49%" alt="Penumbra with the amber filter on">
 </p>
 
-<p align="center"><sub>🇪🇸 <a href="README.es.md">Leer en español</a></sub></p>
+<p align="center"><sub>🇪🇸 <a href="README.es.md">Spanish version</a></sub></p>
 
 ## ✨ Features
 
-- 🌗 **Dim the screen** from 0 to 100 %, on top of any app.
+- 🌗 **Dim the screen** from 0 to 100%, on top of any app.
 - 🎨 **Night tones**: Neutral, Warm, Amber, Candle, Sunset and Red, with adjustable intensity.
 - ⏰ **Daily schedule** that turns the filter on and off by itself, even across midnight (22:00 → 07:00).
 - 🌅 **Gradual dimming** that fades the screen in slowly when the schedule starts.
 - 📺 **Starts with your TV**: optionally switches on every time the TV wakes up.
 - 🎮 **Remote-first**: one clean screen, every setting a few clicks away.
-
-> [!NOTE]
-> The app's interface is in Spanish. The [settings table](#-settings) below translates every option.
+- 🌍 **English and Spanish**: follows your TV's language.
 
 ## 📦 Install
 
@@ -68,7 +66,7 @@ adb install Penumbra.apk
 Install **Send Files to TV** on your phone and on the TV, send the APK, and open it with a file manager on the TV (allow it to install unknown apps when asked).
 </details>
 
-**3. Open Penumbra** on the TV and press **Abrir accesibilidad › Penumbra › Enable**. That's it.
+**3. Open Penumbra** on the TV and press **Open accessibility › Penumbra › Enable**. That's it.
 
 ## 🎮 Using it
 
@@ -87,16 +85,16 @@ Changes apply instantly: the app itself sits under the filter, so you see the re
 
 ## ⚙️ Settings
 
-| In the app | What it does |
+| Setting | What it does |
 |---|---|
-| **Atenuación** | How dark the screen gets |
-| **Filtro nocturno** | Colour tone: Neutro, Cálido, Ámbar, Vela, Ocaso, Rojo |
-| **Intensidad del filtro** | Strength of the colour tone |
-| **Encendido y apagado automáticos** | Turns the daily schedule on |
-| **Encender a las · Apagar a las** | Start and end time |
-| **Oscurecimiento gradual** | How long the fade-in takes at the start time (off, 5, 15, 30 or 60 min) |
-| **Activar al encender la TV** | Switches the filter on whenever the TV wakes up or restarts |
-| **Bajar también el brillo del sistema** | Also lowers the system brightness, on TVs that support it |
+| **Dimming** | How dark the screen gets |
+| **Night filter** | Colour tone: Neutral, Warm, Amber, Candle, Sunset or Red |
+| **Filter intensity** | Strength of the colour tone |
+| **Automatic on and off** | Turns the daily schedule on |
+| **Turn on at · Turn off at** | Start and end time |
+| **Gradual dimming** | How long the fade-in takes at the start time (off, 5, 15, 30 or 60 min) |
+| **Turn on with the TV** | Switches the filter on whenever the TV wakes up or restarts |
+| **Also lower the system brightness** | Lowers the real backlight too, on TVs that support it |
 
 ## 🔒 Privacy
 

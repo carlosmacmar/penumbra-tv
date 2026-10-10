@@ -10,7 +10,7 @@
 .externalNativeBuild/
 .cxx/
 
-# Firma de release
+# Release signing
 keystore.properties
 *.jks
 *.keystore

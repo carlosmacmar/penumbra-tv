@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- El servicio no escucha eventos ni lee ventanas: solo aloja la capa del filtro. -->
+<!-- The service listens to no events and reads no windows: it only hosts the filter layer. -->
 <accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:accessibilityFeedbackType="feedbackGeneric"

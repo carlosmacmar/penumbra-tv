@@ -9,34 +9,39 @@ import java.time.Instant
 import java.time.LocalTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.util.Locale
 
-private val spanish: Locale = Locale.forLanguageTag("es-ES")
-private val time24 = DateTimeFormatter.ofPattern("HH:mm", spanish)
-private val time12 = DateTimeFormatter.ofPattern("h:mm a", spanish)
-private val clock12 = DateTimeFormatter.ofPattern("h:mm", spanish)
-private val dayPeriod = DateTimeFormatter.ofPattern("a", spanish)
-private val longDate = DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM", spanish)
+/** Date and time follow the device language, with the pattern that language expects. */
+private fun Context.formatter(skeleton: String, fallback: String): DateTimeFormatter {
+    val locale = resources.configuration.locales[0]
+    return runCatching {
+        DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(locale, skeleton), locale)
+    }.getOrElse { DateTimeFormatter.ofPattern(fallback, locale) }
+}
 
-fun formatTime(context: Context, time: LocalTime): String =
-    time.format(if (DateFormat.is24HourFormat(context)) time24 else time12)
+fun formatTime(context: Context, time: LocalTime): String = time.format(
+    if (DateFormat.is24HourFormat(context)) context.formatter("Hm", "HH:mm") else context.formatter("hm", "h:mm a"),
+)
 
 fun formatMinuteOfDay(context: Context, minuteOfDay: Int): String =
     formatTime(context, LocalTime.of(minuteOfDay / 60, minuteOfDay % 60))
 
-/** The big clock: digits and, on 12-hour devices, the "a. m." marker shown smaller beside them. */
+/** The big clock: digits and, on 12-hour devices, the AM/PM marker shown smaller beside them. */
 fun formatClock(context: Context, now: Long): Pair<String, String?> {
     val time = Instant.ofEpochMilli(now).atZone(ZoneId.systemDefault()).toLocalTime()
     return if (DateFormat.is24HourFormat(context)) {
-        time.format(time24) to null
+        time.format(context.formatter("Hm", "HH:mm")) to null
     } else {
-        time.format(clock12) to time.format(dayPeriod)
+        val locale = context.resources.configuration.locales[0]
+        time.format(DateTimeFormatter.ofPattern("h:mm", locale)) to time.format(DateTimeFormatter.ofPattern("a", locale))
     }
 }
 
-fun formatDate(now: Long): String =
-    Instant.ofEpochMilli(now).atZone(ZoneId.systemDefault()).format(longDate)
-        .replaceFirstChar { it.titlecase(spanish) }
+fun formatDate(context: Context, now: Long): String {
+    val locale = context.resources.configuration.locales[0]
+    return Instant.ofEpochMilli(now).atZone(ZoneId.systemDefault())
+        .format(context.formatter("EEEEdMMMM", "EEEE, d MMMM"))
+        .replaceFirstChar { it.titlecase(locale) }
+}
 
 fun formatFade(context: Context, minutes: Int): String = when {
     minutes <= 0 -> context.getString(R.string.fade_off)

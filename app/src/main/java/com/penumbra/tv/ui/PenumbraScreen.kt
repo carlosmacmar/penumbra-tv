@@ -219,7 +219,7 @@ private fun StatusPane(
                     )
                 }
             }
-            Text(formatDate(now), style = Type.Date, color = Palette.TextSecondary)
+            Text(formatDate(context, now), style = Type.Date, color = Palette.TextSecondary)
         }
 
         Column {
@@ -236,7 +236,7 @@ private fun StatusPane(
                 }
             }
             Spacer(Modifier.height(26.dp))
-            NextEvent(state, now)
+            NextEvent(state, active, now)
         }
     }
 }
@@ -250,9 +250,11 @@ private fun statusDetail(context: Context, state: FilterState, now: Long, mode: 
 }
 
 @Composable
-private fun NextEvent(state: FilterState, now: Long) {
+private fun NextEvent(state: FilterState, active: Boolean, now: Long) {
     val context = LocalContext.current
-    val next = if (state.scheduleEnabled) Schedule.next(state, now) else null
+    var next = if (state.scheduleEnabled) Schedule.next(state, now) else null
+    // Describe the next real change: a boundary that matches the current state changes nothing.
+    if (next != null && next.turnsOn == active) next = Schedule.next(state, next.at)
     Row(Modifier.height(24.dp), verticalAlignment = Alignment.CenterVertically) {
         if (next == null) return@Row
         val zone = ZoneId.systemDefault()

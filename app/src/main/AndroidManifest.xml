@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Google TV / Android TV: sin pantalla táctil y con lanzador Leanback. -->
+    <!-- Google TV / Android TV: no touchscreen, Leanback launcher. -->
     <uses-feature
         android:name="android.software.leanback"
         android:required="false" />
@@ -10,19 +10,19 @@
         android:name="android.hardware.touchscreen"
         android:required="false" />
 
-    <!-- Capa del filtro cuando no se usa el servicio de accesibilidad. -->
+    <!-- Filter layer when the accessibility service is not used. -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
-    <!-- Programación y arranque automático. -->
+    <!-- Schedule and auto-start. -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission
         android:name="android.permission.SCHEDULE_EXACT_ALARM"
         android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 
-    <!-- Opcional: bajar el brillo real en televisores que lo admiten. -->
+    <!-- Optional: lower the real brightness on TVs that support it. -->
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
@@ -66,14 +66,14 @@
             android:foregroundServiceType="specialUse">
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="Mantiene un filtro de atenuación de pantalla sobre las demás apps" />
+                android:value="Keeps a screen dimming filter on top of other apps" />
         </service>
 
         <receiver
             android:name=".receiver.AlarmReceiver"
             android:exported="false" />
 
-        <!-- Sin exportar: estas difusiones protegidas solo las envía el sistema. -->
+        <!-- Not exported: only the system sends these protected broadcasts. -->
         <receiver
             android:name=".receiver.SystemEventReceiver"
             android:exported="false">

@@ -1,2 +1,2 @@
-# Los servicios y receptores se declaran en el manifiesto, así que R8 ya los conserva.
-# Añade aquí reglas propias si incorporas librerías que usen reflexión.
+# Services and receivers are declared in the manifest, so R8 already keeps them.
+# Add rules here if you bring in libraries that rely on reflection.
